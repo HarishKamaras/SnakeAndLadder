@@ -6,6 +6,7 @@ public class SnakeAndLadder {
     static final int NO_PLAY = 1;
     static final int LADDER = 2;
     static final int SNAKE = 3;
+    static final int WINNING_POSITION = 100;
     private static int dieRoll() {
         int dieValue = (int) (Math.random() * 10 % 6) + 1;
         return dieValue;
@@ -38,12 +39,15 @@ public class SnakeAndLadder {
     }
     public static void main(String[] args) {
         System.out.println("Welcome to snake and ladder game");
-        int dieNo = dieRoll();
-        int option = getoption();
-        System.out.println("Die : " +dieNo);
-        System.out.println("Option : "+option);
-        PLAYER_POSITION= playgame(option, dieNo);
-        System.out.println("Playerposition is " +PLAYER_POSITION );
+       while (PLAYER_POSITION < WINNING_POSITION){
+           int dieNo = dieRoll();
+           int option = getoption();
+           System.out.println("Die : " +dieNo);
+           System.out.println("Option : "+option);
+           PLAYER_POSITION= playgame(option, dieNo);
+           System.out.println("Playerposition is " +PLAYER_POSITION );
+       }
+
 
     }
 }
